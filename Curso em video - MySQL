@@ -36,6 +36,65 @@ primary key (id)
 insert into pessoas values
 (default, 'Marli', '1988-05-14', 'F', '60', '1.56', 'Irlanda');
 
+select * from pessoas;
 
+(Codigo acima:
+inserir informações na tabela - mantendo nesse formato)
+select é para analisar como esta ficando a planilha )
+
+use cadastro;
+desc pessoas;
+
+*ADICIONAR COLUNAS*
+alter table pessoas
+add column profissao varchar (10) after nome;
+
+(O AFTER NOME - E QUE VOCE QUER ESSA COLUNA DEPOIS DO NOME
+AFTER - DEPOIS
+FIRST - PRIMEIRO
+NAO COLOCAR NADA A COLUNA FICA NA ULTIMA POSICAO)
+
+*MODIFICAR FORMATO DA COLUNA*
+alter table pessoas
+modify column profissao varchar (20) not null default '';
+
+*EXCLUIR COLUNA*
+alter table pessoas
+drop column profissao;
+
+* COLOCAR A COLUNA EM PRIMEIRO *
+alter table pessoas
+add column codigo int first;
+
+*ALTERAR O NOME DA COLUNA*
+alter table pessoas
+change column profissao profession varchar (20) not null default '';
+(LEMBRANDO QUE SE FOR ALTERAR TEM QUE COLOCAR OS TIPOS NOVAMENTE SENAO VOCE PERDE: EX NOT NULL DEFAULT '')
+
+*ALTERAR NOME DE TABELA*
+alter table pessoas
+rename to people;
+
+desc people;
 
 select * from pessoas;
+
+
+
+*CRIANDO UMA NOVA TABELA*
+create table if not exists cursos(
+nome varchar (30) not null unique,
+descricao text,
+carga int unsigned,
+totalaulas int unsigned,
+ano year default '2025'
+) default charset=utf8;
+
+
+alter table cursos
+add column idcursos int first;
+
+alter table cursos
+add primary key (idcursos);
+
+describe cursos;
