@@ -1,0 +1,10 @@
+Problemas encontrados no processo:
+
+1- Incompatibilidade de versão (Version Mismatch) no MySQL Workbench ao tentar realizar um dump (backup).
+
+SOLUÇÃO ENCONTRADA - PREFERENCES | ADMINISTRATION |PATH TO MYSQLDUMP TOOL
+COLOQUEI A PASTA C:\xampp\mysql\bin\mysqldump.exe |OK;
+
+2- Unhandled exception: cannot access local variable 'pwd' where it is not associated with a value
+
+TROQUEI DE SERVIDOR, USANDO UM LOCAL;
