@@ -1,0 +1,65 @@
+DQL - CONSULTA DADOS
+SELECT ( Porque ele nao altera dados ,ele apenas seleciona  )
+DESCRIBE
+________________________________________________
+DESCRIBE - AQUI VOCE VE A FORMACAO DA TABELA:
+
+DESCRIBE OU DESC - EX: desc pessoas;
+
+________________________________________
+
+SELECT - AQUI VOCE VE AS TABELAS COM AS INFORMACOES INCLUSAS:
+
+*ORGANIZAR E VISUALIZAR TABELA TODA*
+select * from cursos
+order by nome desc; 
+(desc aqui é de decrescente e nao de describe);
+
+_______________________________
+
+*ORGANIZAR E VISUALIZAR ALGUMAS COLUNAS DA TABELA*
+select ano, nome, carga from cursos
+order by ano, nome;
+(a regra de pesquisar vai com base na ordem q voce coloca - se colocar nome, carga, ano ele vai vim nessa ordem, se colocar
+isso serve para o select ou order by);
+
+____________________________________
+
+*MOSTRAR TODOS EXCETO (!=) TAL DADO *
+
+select * from cursos
+where ano != '2016'
+order by ano;
+
+(resultset - e o resultado fornecido.
+quando coloca where voce especifica a linha q voce deseja
+no where pode ser =, <= , >= , != ou <> significa diferente do que pediu ex: 2016, vai conter todos que nao tenha 2016);
+
+________________________________________
+
+*VISUALIZADA SOMENTE (IN) OS DADOS SELECIONADOS*
+select nome , ano from cursos
+where ano in (2010, 2014, 2020)
+order by ano;
+(in significa "somente esse periodo selecionado");
+
+__________________________________________
+
+* VISUALIZAR QUANDO OS AS COLUNAS SELECIONADAS TIREM ATENDENDO O PEDIDO AO MESMO TEMPO*
+select nome, carga, totaulas from cursos
+where carga > 30 and totaulas < 25
+order by carga , totaulas;
+
+(and - ultizado quando voce quer que as duas ou mais opcoes que voce colocou tenha as caracteristicas presentes,
+caso uma tenha e a outra nao, esse dado vai fica de fora do resultado);
+
+_____________________________________________
+
+* VISUALIZAR QUANDO OS UMA DAS COLUNAS SELECIONADAS TIREM ATENDENDO O PEDIDO, MESMO QUE SO UMA DELAS*
+select nome, carga, totaulas from cursos
+where carga > 30 or totaulas < 25
+order by carga , totaulas;
+
+(or - ultizado quando voce quer que uma das opcoes que voce colocou tenha as caracteristicas presentes,
+caso uma tenha e a outra nao, esse dado vai aparecer mesmo assim resultado- so nao vai aparecer se nao tiver os dados que voce busca
+nenhuma das colunas);
