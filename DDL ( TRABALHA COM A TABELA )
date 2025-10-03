@@ -11,6 +11,7 @@ CREATE:
 create database cadastro 
 default character set utf8
 default collate utf8_general_ci;
+(cria um banco de dado com um codigo para nao ter problemas com acentuações)
 
 _____________________________________
 
@@ -26,6 +27,8 @@ altura decimal (3,2),
 nacionalidade varchar (20) default 'Brasil',
 primary key (id)
 )default charset= utf8;
+(cria uma tabela, onde voce coloca que tipo de informação você vai querer nessa tabela junto ao tipo de dado sql. O primary key é chave q torna a coluna principal da tabela)
+
 
 * CASO NAO EXISTA, CRIAR TABELA TAL*
 
@@ -36,6 +39,7 @@ carga int unsigned,
 totalaulas int unsigned,
 ano year default '2025'
 ) default charset=utf8;
+
 
 _________________________________________
 
