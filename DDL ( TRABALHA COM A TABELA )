@@ -1,0 +1,86 @@
+DDL ( TRABALHA COM A TABELA )
+    CREATE DATABASE 
+    CREATE TABLE  
+    ALTER TABLE
+    DROP TABLE
+
+CREATE:
+
+*CRIAR BANCO DE DADOS*
+
+create database cadastro 
+default character set utf8
+default collate utf8_general_ci;
+
+_____________________________________
+
+*CRIAR TABELAS*
+
+create table pessoas(
+id int not null auto_increment,
+nome varchar (30) not null,
+nascimento date,
+sexo enum ( 'M', 'F'),
+peso decimal(5,2),
+altura decimal (3,2),
+nacionalidade varchar (20) default 'Brasil',
+primary key (id)
+)default charset= utf8;
+
+* CASO NAO EXISTA, CRIAR TABELA TAL*
+
+create table if not exists cursos(
+nome varchar (30) not null unique,
+descricao text,
+carga int unsigned,
+totalaulas int unsigned,
+ano year default '2025'
+) default charset=utf8;
+
+_________________________________________
+
+ALTER TABLE:
+
+*ADICIONAR COLUNAS*
+
+alter table pessoas
+add column profissao varchar (10) after nome;
+
+____________________________________________
+
+*MODIFICAR FORMATO DA COLUNA*
+
+alter table pessoas
+modify column profissao varchar (20) not null default '';
+
+____________________________________________
+
+* COLOCAR A COLUNA EM PRIMEIRO *
+
+alter table pessoas
+add column codigo int first;
+
+___________________________________________
+
+*ALTERAR O NOME DA COLUNA*
+
+alter table pessoas
+change column profissao profession varchar (20) not null default '';
+(LEMBRANDO QUE SE FOR ALTERAR TEM QUE COLOCAR OS TIPOS NOVAMENTE SENAO VOCE PERDE: EX NOT NULL DEFAULT '')
+
+________________________________________________
+
+*ALTERAR NOME DE TABELA*
+alter table pessoas
+rename to people;
+
+_____________________________________________
+DROP:
+
+drop database; (BANCO DE DADO TODO)
+drop table; ( APAGA TODA A TABELA)
+
+*EXCLUIR COLUNA*
+alter table pessoas
+drop column profissao;
+
