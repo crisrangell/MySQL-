@@ -6,7 +6,7 @@ default collate utf8_general_ci;
 
 (Códigos acima: 
 • criação de um banco de dado 
-• "linguagem" )
+• "ACENTUACOES" )
 
 
 *Criação de tabelas*
@@ -139,6 +139,10 @@ where idcursos= '10';
 truncate cursos;  
 
 select *from cursos;
+
+*DUMP- SALVAR TODA BASE DE DADO *
+SERVER | DATA EXPORT | SELECIONAR TABLES TO EXPORT 
+DUMP STRUCTURE AND DATA | EXPORT TO SELF-CONTAINED | INCLUDE CREATE SCHEMA ( ELE VAI INCLUIR O DATABASE - NAO VAI PRECISAR CRIAR UM QUANDO ACESSAR)
 
 
 
