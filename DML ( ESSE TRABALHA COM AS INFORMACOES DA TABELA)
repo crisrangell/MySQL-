@@ -1,0 +1,36 @@
+DML ( ESSE TRABALHA COM AS INFORMACOES DA TABELA)
+    INSERT INTO
+    UPDATE
+    DELETE  
+    TRUNCATE
+
+*INFORMACOES DA TABELA*
+
+insert into pessoas values
+(default, 'Marli', '1988-05-14', 'F', '60', '1.56', 'Irlanda');
+
+_________________________________________________
+
+*MODIFICAR INFORMACOES DA TABELA *
+
+update cursos
+set nome= 'JAVA', carga= 40 , ano='2015'
+where idcursos = '5';
+
+update cursos
+set ano='2025'
+where  ano= '2018'
+limit 1;
+
+____________________________________________________
+
+*APAGA A LINHA*
+
+delete from cursos
+where idcursos= '10';
+
+____________________________________________________
+
+*APAGA AS INFORMACOES TODA DO REGISTRO*
+
+truncate cursos;  
