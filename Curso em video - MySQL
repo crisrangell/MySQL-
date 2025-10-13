@@ -1,165 +1,20 @@
-*Criar banco de dado*
-
-create database cadastro 
-default character set utf8
-default collate utf8_general_ci;
-
-(Códigos acima: 
-• criação de um banco de dado 
-• "ACENTUACOES" )
 
 
-*Criação de tabelas*
+*desc pessoas ou describe cursos; *
 
-use cadastro;
-
-create table pessoas(
-id int not null auto_increment,
-nome varchar (30) not null,
-nascimento date,
-sexo enum ( 'M', 'F'),
-peso decimal(5,2),
-altura decimal (3,2),
-nacionalidade varchar (20) default 'Brasil',
-primary key (id)
-)default charset= utf8;
-
-(Codigos acima:
-
-• Criar tabela;
-• Criar id - identificação;
-• Descrição do que vai conter na minha tabela;
-• Criar chave;)
+verifica toda informaçao da tabela
 
 
-*Registro*
-insert into pessoas values
-(default, 'Marli', '1988-05-14', 'F', '60', '1.56', 'Irlanda');
+*select * from pessoas;*
 
-select * from pessoas;
-
-(Codigo acima:
-inserir informações na tabela - mantendo nesse formato)
-select é para analisar como esta ficando a planilha )
-
-use cadastro;
-desc pessoas;
-
-*ADICIONAR COLUNAS*
-alter table pessoas
-add column profissao varchar (10) after nome;
-
-(O AFTER NOME - E QUE VOCE QUER ESSA COLUNA DEPOIS DO NOME
-AFTER - DEPOIS
-FIRST - PRIMEIRO
-NAO COLOCAR NADA - A COLUNA FICA NA ULTIMA POSICAO)
-
-*MODIFICAR FORMATO DA COLUNA*
-alter table pessoas
-modify column profissao varchar (20) not null default '';
-
-*EXCLUIR COLUNA*
-alter table pessoas
-drop column profissao;
-
-* COLOCAR A COLUNA EM PRIMEIRO *
-alter table pessoas
-add column codigo int first;
-
-*ALTERAR O NOME DA COLUNA*
-alter table pessoas
-change column profissao profession varchar (20) not null default '';
-(LEMBRANDO QUE SE FOR ALTERAR TEM QUE COLOCAR OS TIPOS NOVAMENTE SENAO VOCE PERDE: EX NOT NULL DEFAULT '')
-
-*ALTERAR NOME DE TABELA*
-alter table pessoas
-rename to people;
-
-desc people;
-
-select * from pessoas;
+verifica todos os dados das informaçoes colocada na tabela
 
 
-*CRIANDO UMA NOVA TABELA*
-
-create table if not exists cursos(
-nome varchar (30) not null unique,
-descricao text,
-carga int unsigned,
-totalaulas int unsigned,
-ano year default '2025'
-) default charset=utf8;
 
 
-alter table cursos
-add column idcursos int first;
-
-alter table cursos
-add primary key (idcursos);
-
-describe cursos;
-
-
-*AULA 7*
-
-use cadastro;
-insert into cursos values
-( '1', 'HTML4', 'Curso de HTML5', '40', '37', '2014'),
-( '2', 'Algoritmos', 'Logica de programação', '20', '15', '2014'),
-( '3', 'Photoshop', 'Dica de Photoshop CC', '10', '8', '2014'),
-( '4', 'PGP', 'Curso de PHP para iniciantes', '40', '20', '2010'),
-( '5', 'Jarva', 'Introdução linguagem Java', '10', '29', '2000'),
-( '6', 'MySQL', 'Banco de dados MySQL', '30', '15', '2016'),
-( '7', 'Word', 'Curso completo Word', '40', '30', '2016'),
-( '8', 'Sapateado', 'Danças ritmicas', '40', '30', '2018'),
-( '9', 'Cozinha Arabe', 'Aprenda a fazer kibe', '40', '30', '2018'),
-( '10', 'Youtuber', 'Gerar polêmica e ganhar inscritos', '5', '2', '2018');
-
-update cursos
-set nome= 'JAVA', carga= 40 , ano='2015'
-where idcursos = '5';
-
-(FAZER ALTERACOES NA LINHA)
-
-
-update cursos
-set ano='2025'
-where  ano= '2018'
-limit 1;
-
-(LIMIT 1 - VOCE USA PARA LIMITAR QUANTIDADE DE ITENS APAGADO, CONFORME A DESCRIÇÃO.
-CUIDADO AO APAGAR MUITOS ITENS PQ DEPOIS Q ISSO OCORRE 
-NAO TEM COMO RECUPERAR SE NAO TIVER BACKUP)
-
-*APAGA A LINHA*
-delete from cursos
-where idcursos= '10';
-
-*APAGA AS INFORMACOES TODA DO REGISTRO*
-truncate cursos;  
-
-select *from cursos;
 
 *DUMP- SALVAR TODA BASE DE DADO *
 SERVER | DATA EXPORT | SELECIONAR TABLES TO EXPORT 
 DUMP STRUCTURE AND DATA | EXPORT TO SELF-CONTAINED | INCLUDE CREATE SCHEMA ( ELE VAI INCLUIR O DATABASE - NAO VAI PRECISAR CRIAR UM QUANDO ACESSAR)
 
 
-
-
-
-
-
-
-DDL ( TRABALHA COM A TABELA )
-    CREATE DATABASE 
-    CREATE TABLE  
-    ALTER TABLE
-    DROP TABLE
-
-
-DML ( ESSE TRABALHA COM AS INFORMACOES DA TABELA)
-    INSERT INTO
-    UPDATE
-    DELETE  
-    TRUNCATE
