@@ -45,6 +45,12 @@ _________________________________________
 
 ALTER TABLE:
 
+*ADICIONAR INFORMAÇÃO*
+
+alter table cursos
+add primary key (idcursos);
+
+
 *ADICIONAR COLUNAS*
 
 alter table pessoas
