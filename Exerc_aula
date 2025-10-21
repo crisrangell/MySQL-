@@ -41,6 +41,43 @@ ex 8: Menor peso entre mulheres que nasceu fora do Brasil e entre 1990-01-01 e 2
 select min(peso) from gafanhotos
 where sexo='F' and nacionalidade != 'Brasil' and nascimento between '1990-01-01' and '2000-12-31';
 
+*AULA 12*
+
+1 UMA LISTA COM PROFISSOES DOS GAFANHOTOS E SEUS RESPECTIVOS QUANTATIVOS;
+
+select profissao, count(*) from gafanhotos
+group by profissao;
+
+2 QTS HOMENS E MULHERES NASCERAM APÓS 2005-01-01;
+
+select sexo, count(*) from gafanhotos 
+where nascimento > 2005-01-01
+group by sexo;
+
+
+3 LISTA DE GAFANHOTOS FORA DO BRASIL, MOSTRANDO PAIS E TOTAL DE PESSOAS NASCIDAS LA. 
+SO INTERESSAM OS PAISES QUE TIVEREM MAIS DE 3 GAFANHOTOS;
+
+select nacionalidade, count(*) from gafanhotos
+where nacionalidade != 'Brasil'
+group by nacionalidade
+having count(*) > 3;
+
+
+4  LISTA AGRUPADA PELA ALTURA, MOSTRANDO QTS PESAM MAIS QUE 100KG E QUE ESTAO ACIMA DA MEDIA 
+DE ALTURA DE TODOS OS CADASTRADOS;
+
+select avg(altura) from gafanhotos;
+
+select altura, count(*) from gafanhotos
+where peso > 100
+group by altura
+having altura > (select avg(altura) from gafanhotos);
+
+
+*AULA 13*
+
+
 
 ex 9: qts mulheres tem mais de 1.90 de altura;
 
